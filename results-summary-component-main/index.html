@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Results summary component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    
+
+    body{
+      position: relative;
+      max-width: 1440px;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Hanken Grotesk';
+      font-size: 18px;
+    }
+
+    footer{
+      position: absolute;
+      bottom: 10px;
+      left: 40%;
+    }
+
+    .main{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding-top: 10%;
+    }
+
+    .card{
+      background-image: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+      box-shadow: 13px 13px 30px hsl(221, 100%, 96%);
+      border-radius: 22px;
+      max-width: 260px;
+      height: 365px;
+    }
+
+    .card p{
+      color: hsl(241, 100%, 89%);
+      text-align: center;
+    }
+
+    #result{
+      padding-top: .3em;
+      font-size: 1.05rem;
+    }
+
+    #great{
+      font-size: 1.2em;
+      color: white;
+      margin: 0;
+    }
+
+    .grade{
+      box-sizing: border-box;
+      margin: 24px auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: linear-gradient(hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+      width: 142px;
+      height: 142px;
+      border-radius: 50%;
+    }
+
+    .grade span{
+      font-size: 50px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .grade p{
+      font-size: .7em;
+      font-weight: bold;
+      color: hsl(225, 40%, 65%);
+      text-align: center;
+      margin: 0;
+    }
+
+    .text{
+      font-size: .7em;
+      padding: 0 38px 28px;
+    }
+
+    /* ========================================= */
+
+    .summary{
+      position: relative;
+      box-sizing: border-box;
+      background-color: white;
+      box-shadow: 13px 13px 30px hsl(221, 100%, 96%);
+      font-weight: bold;
+      width: 260px;
+      height: 365px;
+      border-radius: 22px;
+      padding: 0 22px;
+    }
+
+    .summary h2{
+      font-size: .9em;
+      margin-top: .9em;
+    }
+
+    .summary ul{
+      font-size: .8rem;
+      list-style: none;
+      padding: 0;
+    }
+    
+    .summary .num1{
+      position: absolute;
+      right: 27%;
+      color: #868686;
+    }
+
+    .summary .num2{
+      position: absolute;
+      right: 13%;
+      color: hsl(224, 30%, 27%);
+    }
+
+    .list-name{
+      padding-left: 6px;
+    }
+
+    .summary li:nth-child(1){
+      display: flex;
+      align-items: center;
+      background: hsla(0, 100%, 67%, .05);
+      color: hsl(0, 100%, 67%);
+      margin: 1.6em 0;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .summary li:nth-child(2){
+      display: flex;
+      align-items: center;
+      background: hsla(39, 100%, 56%, .05);
+      color: hsl(39, 100%, 56%);
+      margin: 1.6em 0;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .summary li:nth-child(3){
+      display: flex;
+      align-items: center;
+      background: hsla(166, 100%, 37%, .05);
+      color: hsl(166, 100%, 37%);
+      margin: 1.6em 0;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .summary li:nth-child(4){
+      display: flex;
+      align-items: center;
+      background: hsla(234, 85%, 45%, .05);
+      color: hsl(234, 85%, 45%);
+      margin: 1.6em 0;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .button{
+      display: flex;
+      justify-content: center;
+      padding-top: 1.4em;
+    }
+    button{
+      background-image: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+      padding: .9em 6em;
+      border: none;
+      border-radius: 18px;
+    }
+
+    button p{
+      width: auto;
+      color: white;
+      font-size: .8em;
+      margin: 0;
+    }
+
+    
+
+
+  </style>
+</head>
+<body>
+
+  <div class="main">
+    <div class="card">
+      <p id="result">Your Result</p>
+      <div class="grade">
+        <span>76</span>
+        <p>of 100</p>
+      </div>
+      <p id="great">Great</p>
+      <p class="text">You scored higher than 65% of the people who have taken these tests.</p>
+    </div>
+    
+    <div class="summary">
+      <h2>Summary</h2>
+      <ul>
+        <li>
+          <img class="icon" src="assets/images/icon-reaction.svg" alt="Icon React">
+          <p class="text-list">
+            <div class="list-name">Reaction</div>
+            <div class="num1">80</div>
+            <div class="num2">/ 100</div>
+          </p>
+        </li>
+        <li>
+          <img class="icon" src="assets/images/icon-memory.svg" alt="Icon Memory">
+          <p class="text-list">
+            <div class="list-name">Memory</div> 
+            <div class="num1">92</div> 
+            <div class="num2">/ 100</div>
+          </p>
+        </li>
+        <li>
+          <img class="icon" src="assets/images/icon-verbal.svg" alt="Icon Verbal">
+          <p class="text-list">
+            <div class="list-name">Verbal</div>
+            <div class="num1">61</div> 
+            <div class="num2">/ 100</div>
+          </p>
+        </li>
+        <li>
+          <img class="icon" src="assets/images/icon-visual.svg" alt="Icon Visual">
+          <p class="text-list">
+            <div class="list-name">Visual</div>
+            <div class="num1">72</div>
+            <div class="num2">/ 100</div>
+          </p>
+        </li>
+      </ul>
+      
+      <div class="button">
+        <button>
+          <p>
+            Continue
+          </p>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Andrey Borges</a>.
+  </footer>
+</body>
+</html>
